@@ -5,157 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohan Reddy Aeturi's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button id="dark-mode-toggle">Dark Mode</button></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Mohan Reddy Aeturi</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="dark-mode-toggle" class="dark-mode-button">Dark Mode</button></li>
+            </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
     <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello! I'm Aeturi Mohan Reddy, a student at SRM Institute of Science and Technology.</p>
-        <button onclick="downloadResume()">Download Resume</button>
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Explore my work and skills as a web developer.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>As an aspiring tech enthusiast, my aim is to keep learning and making a positive impact...</p>
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="your-profile-picture.jpg" alt="Mohan Reddy Aeturi" class="profile-pic">
+                <div class="about-text">
+                    <p>Hi, I'm Mohan Reddy Aeturi, a passionate web developer with a love for creating innovative web solutions. With a strong foundation in modern web technologies, I thrive on building responsive and user-friendly websites.</p>
+                    <p>In my free time, I enjoy exploring new programming languages, contributing to open-source projects, and staying updated with the latest trends in web development.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <h3>Technical Skills</h3>
-        <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Object-Oriented Programming</li>
-            <li>AWS (EC2, VPC, S3)</li>
-            <li>HTML/CSS</li>
-            <li>Cryptography</li>
-            <li>Cloud Computing</li>
-        </ul>
-        <h3>Soft Skills</h3>
-        <ul>
-            <li>Adaptability</li>
-            <li>Time Management</li>
-            <li>Work Efficiency</li>
-            <li>Problem-Solving</li>
-        </ul>
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="https://github.com/MOHANREDDY3766/Smart-Traffic-Management-System---Cloud-Computing-Machine-Learning" onclick="openProjectModal('project1')">Smart Traffic Management System (Cloud Computing, Machine Learning, Deep Learning)</a></li>
-            <li><a href="https://github.com/MOHANREDDY3766/Plant-Disease-Detection-main" onclick="openProjectModal('project5')">Enhanced Image Recognition for Early Detection of Plant Diseases (Agriculture, Machine Learning, Deep Learning)</a></li>
-            <li><a href="https://github.com/MOHANREDDY3766/Integrating-RSA-algorithm-in-CLOUD---CRYPTOGRAPHY-Cloud-Computing" onclick="openProjectModal('project2')">RSA Algorithm Integration in Cloud Computing (Cryptography, Cloud Computing)</a></li>
-            <li><a href="https://github.com/MOHANREDDY3766/voice/tree/main/voice" onclick="openProjectModal('project3')">Virtual Voice Assistant (Artificial Intelligence)</a></li>
-            <li><a href="#" onclick="openProjectModal('project4')">E-Commerce Platform for Furniture (Web Development)</a></li>
-        </ul>
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Repeat this block for each project -->
+                <div class="project-card">
+                    <img src="project-image1.jpg" alt="Project 1">
+                    <h3>Project Title 1</h3>
+                    <p>Brief description of the project goes here.</p>
+                    <a href="project-link1" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <img src="project-image2.jpg" alt="Project 2">
+                    <h3>Project Title 2</h3>
+                    <p>Brief description of the project goes here.</p>
+                    <a href="project-link2" class="btn">View Project</a>
+                </div>
+                <!-- Add more project blocks as needed -->
+            </div>
+        </div>
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
-        <div>
-            <h3>AWS Cloud Virtual Internship</h3>
-            <p>May 2023 - Jul 2023, Chennai</p>
-            <p>Deployed virtual servers, configured networking, and managed storage solutions using AWS services like EC2, VPC, and S3...</p>
-        </div>
-        <div>
-            <h3>Web Developer Intern</h3>
-            <p>Skolar, Dec 2022 - Jan 2023, Chennai</p>
-            <p>Built dynamic web applications using front-end technologies like HTML, CSS, JavaScript, React.js, and AngularJS...</p>
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Job Title 1</h3>
+                    <p>Company Name - Duration</p>
+                    <p>Brief description of your role and responsibilities.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Job Title 2</h3>
+                    <p>Company Name - Duration</p>
+                    <p>Brief description of your role and responsibilities.</p>
+                </div>
+                <!-- Add more timeline items as needed -->
+            </div>
         </div>
     </section>
 
     <section id="education">
-        <h2>Education</h2>
-        <div>
-            <h3>Bachelor of Computer Science and Engineering with Specialization in Cloud Computing</h3>
-            <p>SRM University, Chennai, Tamil Nadu</p>
-            <p>GPA: 8.55/10</p>
-        </div>
-        <div>
-            <h3>Sri Chaitanya Junior College</h3>
-            <p>Kurnool, Andhra Pradesh</p>
-            <p>GPA: 9.54/10</p>
-        </div>
-        <div>
-            <h3>Sri Viswa Bharathi School</h3>
-            <p>Anantapur, Andhra Pradesh</p>
-            <p>GPA: 9.3/10</p>
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Degree 1</h3>
+                    <p>Institution Name - Year of Graduation</p>
+                    <p>Brief description or notable achievements.</p>
+                </div>
+                <div class="education-item">
+                    <h3>Degree 2</h3>
+                    <p>Institution Name - Year of Graduation</p>
+                    <p>Brief description or notable achievements.</p>
+                </div>
+                <!-- Add more education items as needed -->
+            </div>
         </div>
     </section>
 
     <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>AWS Cloud Practitioner Essentials</li>
-            <li>AWS Academy Cloud Foundations</li>
-            <li>Python</li>
-            <li>Python Data Structures</li>
-            <li>SQL</li>
-            <li>CSS</li>
-            <li>Python Developer</li>
-        </ul>
-    </section>
-
-    <section id="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonial-carousel">
-            <!-- Add testimonial items here -->
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <h3>Certification 1</h3>
+                    <p>Issuing Organization - Date</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Certification 2</h3>
+                    <p>Issuing Organization - Date</p>
+                </div>
+                <!-- Add more certification items as needed -->
+            </div>
         </div>
     </section>
 
     <section id="blog">
-        <h2>Blog</h2>
-        <div class="blog-posts">
-            <!-- Add blog post items here -->
+        <div class="container">
+            <h2>Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-post">
+                    <img src="blog-image1.jpg" alt="Blog Post 1">
+                    <h3>Blog Post Title 1</h3>
+                    <p>Short excerpt of the blog post.</p>
+                    <a href="blog-link1" class="btn">Read More</a>
+                </div>
+                <div class="blog-post">
+                    <img src="blog-image2.jpg" alt="Blog Post 2">
+                    <h3>Blog Post Title 2</h3>
+                    <p>Short excerpt of the blog post.</p>
+                    <a href="blog-link2" class="btn">Read More</a>
+                </div>
+                <!-- Add more blog post blocks as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"Mohan Reddy Aeturi is an outstanding developer. His attention to detail and commitment to excellence is unparalleled."</p>
+                    <p><strong>- Person Name, Job Title</strong></p>
+                </div>
+                <div class="testimonial">
+                    <p>"Working with Mohan was a pleasure. He delivered our project on time and exceeded our expectations."</p>
+                    <p><strong>- Person Name, Job Title</strong></p>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Phone: 9347365932</p>
-        <p>Location: Chennai, TN</p>
-        <p>Email: <a href="mailto:aeturimohanreddy@gmail.com">aeturimohanreddy@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/mohan-reddy-aeturi-3a9555256">linkedin.com/in/mohan-reddy-aeturi-3a9555256</a></p>
-        <p>GitHub: <a href="https://github.com/MOHANREDDY3766">github.com/MOHANREDDY3766</a></p>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+        <div class="container">
+            <h2>Contact</h2>
+            <p>If you would like to get in touch, feel free to drop me a message!</p>
+            <form action="https://formspree.io/your-email" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeProjectModal()">&times;</span>
-            <div id="project-details">
-                <!-- Project details will be loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts.js"></script>
+    <footer>
+        <p>&copy; 2024 Mohan Reddy Aeturi. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-github"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
