@@ -1,110 +1,76 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    const body = document.body;
-
-    darkModeToggle.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-        // Save dark mode preference in localStorage
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
-        }
-    });
-
-    // Apply the saved theme on load
-    if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-    }
-
-    // Burger menu
-    const burger = document.querySelector(".burger");
-    const navLinks = document.querySelector(".nav-links");
-
-    burger.addEventListener("click", () => {
-        navLinks.classList.toggle("nav-active");
-        // Toggle burger animation
-        burger.classList.toggle("toggle");
-    });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
-
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
     });
 
-    // Lazy loading for images
-    const lazyImages = document.querySelectorAll("img.lazy");
-
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const image = entry.target;
-                image.src = image.dataset.src;
-                image.classList.remove("lazy");
-                observer.unobserve(image);
-            }
-        });
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
     });
 
-    lazyImages.forEach(image => {
-        imageObserver.observe(image);
-    });
+    // Handle contact form submission
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    // Form validation and submission handling
-    const contactForm = document.querySelector("#contact form");
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const name = document.querySelector("#name").value.trim();
-        const email = document.querySelector("#email").value.trim();
-        const message = document.querySelector("#message").value.trim();
-
-        if (!name || !email || !message) {
-            alert("Please fill in all fields.");
-            return;
-        }
-
-        // Validate email
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
-
-        // Dummy submission action
-        alert("Form submitted successfully!");
-
-        // Reset the form
-        contactForm.reset();
-    });
-
-    // Back to top button functionality
-    const backToTopButton = document.createElement("button");
-    backToTopButton.innerText = "↑";
-    backToTopButton.className = "back-to-top";
-    document.body.appendChild(backToTopButton);
-
-    backToTopButton.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    // Show/hide back to top button based on scroll position
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = "block";
+        if (name && email && message) {
+            alert('Your message has been sent. We will contact you soon.');
+            window.location.href = `mailto:aeturimohanreddy@gmail.com?subject=Contact from ${name}&body=${message}`;
         } else {
-            backToTopButton.style.display = "none";
+            alert('Please fill in all fields.');
         }
     });
+
+    // Project modal handling
+    const projectModal = document.getElementById('project-modal');
+    const projectDetails = document.getElementById('project-details');
+    const closeModalButton = document.querySelector('.close');
+
+    window.openProjectModal = function(projectId) {
+        let projectContent = '';
+        switch (projectId) {
+            case 'project1':
+                projectContent = '<h2>Smart Traffic Management System</h2><p>Details about Smart Traffic Management System...</p>';
+                break;
+            case 'project2':
+                projectContent = '<h2>RSA Algorithm Integration in Cloud Computing</h2><p>Details about RSA Algorithm Integration in Cloud Computing...</p>';
+                break;
+            case 'project3':
+                projectContent = '<h2>Virtual Voice Assistant</h2><p>Details about Virtual Voice Assistant...</p>';
+                break;
+            case 'project4':
+                projectContent = '<h2>E-Commerce Platform for Furniture</h2><p>Details about E-Commerce Platform for Furniture...</p>';
+                break;
+            case 'project5':
+                projectContent = '<h2>Enhanced Image Recognition for Early Detection of Plant Diseases</h2><p>Details about Enhanced Image Recognition for Early Detection of Plant Diseases...</p>';
+                break;
+            default:
+                projectContent = '<h2>Project Details</h2><p>No details available.</p>';
+                break;
+        }
+        projectDetails.innerHTML = projectContent;
+        projectModal.style.display = 'block';
+    };
+
+    window.closeProjectModal = function() {
+        projectModal.style.display = 'none';
+    };
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target === projectModal) {
+            projectModal.style.display = 'none';
+        }
+    };
 });
