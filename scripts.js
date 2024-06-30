@@ -44,22 +44,22 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             'project2': {
                 title: 'RSA Algorithm Integration in Cloud Computing',
-                description: 'This project integrates the RSA algorithm for secure communication in cloud computing environments.',
+                description: 'A project that integrates RSA algorithm for secure data transmission in cloud computing.',
                 link: '#'
             },
             'project3': {
                 title: 'Virtual Voice Assistant',
-                description: 'An AI-based virtual voice assistant capable of performing various tasks and answering queries.',
+                description: 'An AI-based voice assistant capable of understanding and executing user commands.',
                 link: '#'
             },
             'project4': {
                 title: 'E-Commerce Platform for Furniture',
-                description: 'A fully-featured e-commerce platform developed for buying and selling furniture online.',
+                description: 'A comprehensive e-commerce platform built using modern web development technologies.',
                 link: '#'
             },
             'project5': {
                 title: 'Enhanced Image Recognition for Early Detection of Plant Diseases',
-                description: 'Using machine learning and deep learning to improve early detection of plant diseases.',
+                description: 'A machine learning project aimed at early detection of plant diseases through enhanced image recognition techniques.',
                 link: '#'
             }
         };
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function downloadResume() {
     const link = document.createElement('a');
-    link.href = 'resume.pdf';  // Update with the correct path to your resume
+    link.href = 'https://drive.google.com/drive/folders/1-TwAanf3HcDRwt5gFpJigNI28khzXXml?usp=sharing';
     link.download = 'Mohan_Reddy_Aeturi_Resume.pdf';
     link.click();
 }
