@@ -4,16 +4,12 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 nav {
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
     padding: 1em;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 nav ul {
@@ -31,6 +27,7 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -43,7 +40,6 @@ nav ul li a:hover {
     border: none;
     padding: 0.5em 1em;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 section {
@@ -51,15 +47,20 @@ section {
     margin: 1em 0;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2 {
     text-align: center;
+    color: #4CAF50;
 }
 
 h3 {
     margin-top: 0;
+    color: #4CAF50;
+}
+
+ul li {
+    margin: 0.5em 0;
 }
 
 #contact-form {
@@ -83,15 +84,14 @@ h3 {
     margin-top: 1em;
     padding: 0.5em;
     font-size: 1em;
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 #contact-form button:hover {
-    background-color: #555;
+    background-color: #45a049;
 }
 
 .modal {
@@ -114,8 +114,6 @@ h3 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s;
 }
 
 .close {
@@ -123,43 +121,16 @@ h3 {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
+    cursor: pointer;
 }
 
-body.dark-mode {
-    background-color: #1e1e1e;
-    color: #ccc;
-}
-
-body.dark-mode nav {
-    background-color: #444;
-}
-
-body.dark-mode section {
-    background-color: #2e2e2e;
-    color: #ccc;
-}
-
-body.dark-mode #dark-mode-toggle {
-    background-color: #999;
-    color: #000;
-}
-
-body.dark-mode #contact-form button {
-    background-color: #555;
-}
-
-body.dark-mode #contact-form button:hover {
-    background-color: #777;
-}
-
-body.dark-mode .modal-content {
+.dark-mode {
     background-color: #333;
-    color: #ccc;
+    color: #f0f0f0;
 }
