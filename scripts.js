@@ -1,87 +1,110 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation
-    document.querySelectorAll('nav ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+document.addEventListener("DOMContentLoaded", () => {
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
+
+    darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        // Save dark mode preference in localStorage
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+    // Apply the saved theme on load
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+    }
+
+    // Burger menu
+    const burger = document.querySelector(".burger");
+    const navLinks = document.querySelector(".nav-links");
+
+    burger.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-active");
+        // Toggle burger animation
+        burger.classList.toggle("toggle");
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
             });
         });
     });
 
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
+    // Lazy loading for images
+    const lazyImages = document.querySelectorAll("img.lazy");
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const image = entry.target;
+                image.src = image.dataset.src;
+                image.classList.remove("lazy");
+                observer.unobserve(image);
+            }
+        });
     });
 
-    // Load theme preference
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
+    lazyImages.forEach(image => {
+        imageObserver.observe(image);
+    });
 
-    // Contact form validation
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Perform form validation
-        alert('Message sent!');
+    // Form validation and submission handling
+    const contactForm = document.querySelector("#contact form");
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = document.querySelector("#name").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const message = document.querySelector("#message").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Validate email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Dummy submission action
+        alert("Form submitted successfully!");
+
+        // Reset the form
         contactForm.reset();
     });
 
-    // Project modal handling
-    window.openProjectModal = function(projectId) {
-        const projectDetails = {
-            'project1': {
-                title: 'Smart Traffic Management System',
-                description: 'A project involving cloud computing, machine learning, and deep learning to manage traffic efficiently.',
-                link: '#'
-            },
-            'project2': {
-                title: 'RSA Algorithm Integration in Cloud Computing',
-                description: 'A project that integrates RSA algorithm for secure data transmission in cloud computing.',
-                link: '#'
-            },
-            'project3': {
-                title: 'Virtual Voice Assistant',
-                description: 'An AI-based voice assistant capable of understanding and executing user commands.',
-                link: '#'
-            },
-            'project4': {
-                title: 'E-Commerce Platform for Furniture',
-                description: 'A comprehensive e-commerce platform built using modern web development technologies.',
-                link: '#'
-            },
-            'project5': {
-                title: 'Enhanced Image Recognition for Early Detection of Plant Diseases',
-                description: 'A machine learning project aimed at early detection of plant diseases through enhanced image recognition techniques.',
-                link: '#'
-            }
-        };
-        const project = projectDetails[projectId];
-        if (project) {
-            document.getElementById('project-details').innerHTML = `
-                <h2>${project.title}</h2>
-                <p>${project.description}</p>
-                <a href="${project.link}" target="_blank">View Project</a>
-            `;
-            document.getElementById('project-modal').style.display = 'block';
+    // Back to top button functionality
+    const backToTopButton = document.createElement("button");
+    backToTopButton.innerText = "↑";
+    backToTopButton.className = "back-to-top";
+    document.body.appendChild(backToTopButton);
+
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    // Show/hide back to top button based on scroll position
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
         }
-    };
-
-    window.closeProjectModal = function() {
-        document.getElementById('project-modal').style.display = 'none';
-    };
+    });
 });
-
-function downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'https://drive.google.com/drive/folders/1-TwAanf3HcDRwt5gFpJigNI28khzXXml?usp=sharing';
-    link.download = 'Mohan_Reddy_Aeturi_Resume.pdf';
-    link.click();
-}
